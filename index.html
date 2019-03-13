@@ -5,10 +5,8 @@
   <title>demo</title>
   <link rel="stylesheet" type="text/css" href="main.css">
   <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-  <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
   <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
   <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
-  <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
   <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
   <script src="set-image.js"></script>
   <script src="main.js"></script>
@@ -58,8 +56,8 @@
 
     </a-assets>
 
-    <a-entity id="rig" movement-controls position="50 6 7" rotation="0 -30 0">
-      <a-camera id="camera" camera user-height="0" visible="true" universal-controls="acceleration: 75; easing: 10; enabled: true; fly: false;" look-controls="pointerLockEnabled: true" cursor="rayOrigin: mouse;" raycaster="objects: .clickable; interval: 1;">
+    <a-entity id="main-camera-wrapper rig" movement-controls="acceleration: 75; easing: 10; enabled: true; fly: false;" position="50 0 7" rotation="0 -30 0">
+      <a-camera id="main-camera" position="0 6 0" visible="true" cursor="rayOrigin: mouse;" raycaster="objects: .clickable; interval: 1;">
         <a-cursor id="cursor" event-set__4="_event: mouseleave; color: black;" event-set__3="_event: mouseenter; color: springgreen;" fuse="true" raycaster="objects: .link">
           <a-animation begin="click" easing="ease-in" attribute="scale" dur="150" fill="forwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
           <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" dur="800" fill="backwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
@@ -73,7 +71,7 @@
       <a-entity id="popup" scale="0.1 0.1 0.1" obj-model="obj:#corelogicscreen1-obj;mtl:#corelogicscreen1-mtl" src="#city"></a-entity>
       <a-obj-model id="sample" position="47.20686 2.04674 -10.27632" rotation="0 135 0" scale="0.08 0.11 0.04" obj-model="obj:assets/HouseOBJ.obj;mtl:assets/HouseOBJ.mtl" material="color:#dbd3ff;side:double;roughness:1;metalnessTextureOffset:8.41 0;metalnessTextureRepeat:3.47 2.4;npot:true" shadow=""></a-obj-model>
 
-    <a-entity  template="src: #link" data-src="#trial" data-thumb="#trial" position="38.603 6 -8.632" rotation="0 30 0" scale="1 1 1" material="transparent:true"></a-entity>
+    <a-entity  template="src: #link" data-src="#popup-trial" data-thumb="#trial" position="38.603 6 -8.632" rotation="0 30 0" scale="1 1 1" material="transparent:true"></a-entity>
     <a-sky id="sky" rotation="0 60 0" geometry="radius: 5000; segmentsHeight: 20; segmentsWidth: 64;" material="color: #aaa; flatShading: true; opacity: 1; repeat: 1 1; shader: flat; side: double;src: #sky-img;" position="0 0 0" rotation="0 0 0"
       scale="-1 1 1" shadow="receive: true; cast: true;" visible="true"></a-sky>
     <a-light type="ambient" color="#222" position="-7.76096 3.68286 3.25508" light="type:directional;color:#8598bd;intensity:0.5;groundColor:#fff7ad;castShadow:true;shadowMapHeight:513.87;decay:0;shadowCameraFov:0;shadowCameraFar:0;shadowCameraBottom:0;shadowCameraLeft:0;shadowCameraNear:0;shadowCameraRight:0;shadowCameraTop:0"
