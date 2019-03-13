@@ -8,8 +8,7 @@ illum 7
 
 newmtl Screen_Shot_2018_03_01_at_3_57_09_PM
 Kd 0.9990199804306 0.89999997615814 0.97843098640442
-map_Kd ./Corelogic Model/DC_Dashboard_HazardScenario.png
+map_Kd ./assets/scene/tex/DC_Dashboard_HazardScenario.png
 Ks 0.33000001311302 0.33000001311302 0.33000001311302
 Ns 100
 illum 7
-
