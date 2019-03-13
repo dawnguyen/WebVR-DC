@@ -2,9 +2,8 @@
 
 newmtl Mesh127_Group112_Group111_Model
 Ka 1 1 1
-map_Ka C:\Users\anhng\Downloads\dawn 2\dawn\assets\bake\bakee\Mesh127_Group112_Group111_ModelSurface_Color.png
+map_Ka ./tex/Mesh127_Group112_Group111_ModelSurface_Color.png
 Kd 1 1 1
 Ks 1 1 1
 Ns 50
 illum 7
-
