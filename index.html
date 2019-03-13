@@ -147,7 +147,7 @@
       <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
       <img id="original" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
       <img id="trial" src="assets/img/trialbtn.png">
-      <img id="sky-img" src="assets/sky.jpg">
+      <img id="sky" scale="0.5 0.5 0.5" material="">
 
       <!-- Image link template to be reused. -->
       <script id="link" type="text/html">
@@ -204,7 +204,7 @@
         <a-entity id="wall-13" scale="0.1 0.1 0.1" obj-model="obj:#wall-13-obj;" material="src: ./assets/scene/tex/Mesh14_Group16_ModelSurface_Color.png">
         </a-entity>
       </a-entity>
-      <a-entity id="triangle">
+      <a-entity id="triangle" position="0 0.5">
         <a-entity id="triangle-1" scale="0.1 0.1 0.1" obj-model="obj:#triangle-1-obj;" material="src: ./assets/scene/tex/Mesh106_Group110_ModelSurface_Color.png">
         </a-entity>
         <a-entity id="triangle-2" scale="0.1 0.1 0.1" obj-model="obj:#triangle-2-obj;" material="src: ./assets/scene/tex/Mesh107_Group110_ModelSurface_Color.png">
@@ -262,7 +262,7 @@
         <a-entity id="door-5" scale="0.1 0.1 0.1" obj-model="obj:#door-5-obj;mtl:#door-5-mtl" material="src: ./assets/scene/tex/_Metal_Corrugated_Shiny_2.jpg">
         </a-entity>
       </a-entity>
-      <a-entity id="chair">
+      <a-entity id="chair" position="0 0.5">
         <a-entity id="chair-1" scale="0.1 0.1 0.1" obj-model="obj:#chair-1-obj;" material="src: ./assets/scene/tex/Mesh175_Group150_Component_4_1_Component_1_1_Model.1Surface_Color.png">
         </a-entity>
         <a-entity id="chair-2" scale="0.1 0.1 0.1" obj-model="obj:#chair-2-obj;" material="src: ./assets/scene/tex/Mesh177_Group152_Component_4_2_Component_1_2_Model.1Surface_Color.png">
@@ -272,7 +272,7 @@
         <a-entity id="chair-4" scale="0.1 0.1 0.1" obj-model="obj:#chair-4-obj;" material="src: ./assets/scene/tex/Mesh181_Group156_Component_4_4_Component_1_4_Model.1Surface_Color.png">
         </a-entity>
       </a-entity>
-      <a-entity id="tabletop">
+      <a-entity id="tabletop" position="0 0.5">
         <a-entity id="table-1" scale="0.1 0.1 0.1" obj-model="obj:#table-1-obj;" material="src: ./assets/scene/tex/Mesh172_Group147_Group146_Component_2_1_ModelSurface_Color.png">
         </a-entity>
         <a-entity id="table-2" scale="0.1 0.1 0.1" obj-model="obj:#table-2-obj;" material="src: ./assets/scene/tex/Mesh170_Group145_Group144_Component_10_1_ModelSurface_Color.png">
@@ -281,7 +281,7 @@
         </a-entity>
         <a-plane material="src: ./assets/scene/tex/DC_Dashboard_HazardScenario.png" geometry="" rotation="-90 0 -45" scale="10 3 1" position="46.85146 2.34 -10.528"></a-plane>
       </a-entity>
-      <a-entity id="tablesmall">
+      <a-entity id="tablesmall" position="0 0.5">
         <a-entity id="tablesmall-1" scale="0.1 0.1 0.1" obj-model="obj:#tablesmall-1-obj;" material="src: ./assets/scene/tex/Mesh57_Group62_Group61_Model.1Surface_Color.png">
         </a-entity>
         <a-entity id="tablesmall-2" scale="0.1 0.1 0.1" obj-model="obj:#tablesmall-2-obj;" material="src: ./assets/scene/tex/Mesh62_Group68_Group67_Model.1Surface_Color.png">
@@ -293,7 +293,7 @@
         <a-entity id="tablesmall-5" scale="0.1 0.1 0.1" obj-model="obj:#tablesmall-5-obj;mtl:#tablesmall-5-mtl;">
         </a-entity>
       </a-entity>
-      <a-entity id="thing">
+      <a-entity id="thing" position="0 0.5">
         <a-entity id="thing-1" scale="0.1 0.1 0.1" obj-model="obj:#thing-1-obj; mtl:#thing-1-mtl;">
         </a-entity>
         <a-entity id="thing-2" scale="0.1 0.1 0.1" obj-model="obj:#thing-2-obj; mtl:#thing-2-mtl;">
@@ -307,6 +307,8 @@
         <a-entity id="thing-6" scale="0.1 0.1 0.1" obj-model="obj:#thing-6-obj; mtl:#thing-6-mtl;">
         </a-entity>
         <a-entity id="thing-8" scale="0.1 0.1 0.1" obj-model="obj:#thing-8-obj; mtl:#thing-8-mtl;">
+        </a-entity>
+        <a-entity id="thing-9" scale="0.1 0.1 0.1" obj-model="obj:#thing-9-obj; mtl:#thing-9-mtl;">
         </a-entity>
       </a-entity>
       <a-entity id="logo" scale="0.1 0.1 0.1" obj-model="obj:#logo-obj;mtl:#logo-mtl">
@@ -334,9 +336,9 @@
       <a-plane material="color: #1d1d1d;" geometry="" rotation="-90 0 0" scale="20 40 10" position="9.26821 -1 -6.429"></a-plane>
       <a-entity id="popup" scale="0.1 0.1 0.1" obj-model="obj:#corelogicscreen1-obj;mtl:#corelogicscreen1-mtl">
       </a-entity>
-      <a-entity scale="0.1 0.1 0.1" obj-model="obj: assets/corelogicmodel_screen2.obj; mtl: assets/corelogicmodel_screen2.mtl" position="-1274.02 -1.38 28.9">
+      <a-entity scale="0.1 0.1 0.1" obj-model="obj: assets/corelogicmodel_screen2.obj; mtl:#corelogicscreen2-mtl" position="-1274.02 -1.38 28.9">
       </a-entity>
-      <a-obj-model id="sample" position="47.20686 2.04674 -10.27632" rotation="0 135 0" scale="0.08 0.11 0.04" obj-model="obj:assets/HouseOBJ.obj;mtl:assets/HouseOBJ.mtl" material="color:#dbd3ff;side:double;roughness:1;metalnessTextureOffset:8.41 0;metalnessTextureRepeat:3.47 2.4;npot:true"
+      <a-obj-model id="sample" position="47.20686 2.54674 -10.27632" rotation="0 135 0" scale="0.08 0.11 0.04" obj-model="obj:assets/HouseOBJ.obj;mtl:assets/HouseOBJ.mtl" material="color:#dbd3ff;side:double;roughness:1;metalnessTextureOffset:8.41 0;metalnessTextureRepeat:3.47 2.4;npot:true"
         shadow=""></a-obj-model>
       <a-entity id="center">
         <a-entity id="center-1" scale="0.1 0.1 0.1" obj-model="obj:#center-1-obj;" position="0 0.5" material="src: ./assets/scene/tex/Mesh127_Group112_Group111_ModelSurface_Color.png">
@@ -362,7 +364,7 @@
     <a-entity template="src: #link" data-src="#popup-trial" data-thumb="#trial" position="38.603 6 -8.632" rotation="0 30 0" scale="1 1 1" material="transparent:true"></a-entity>
     <a-entity light="color: #BBB; type: ambient; intensity: 1.22" data-aframe-default-light="" aframe-injected=""></a-entity>
     <a-entity light="intensity: 0.21; castShadow: true" position="-0.5 1 1" data-aframe-default-light="" aframe-injected=""></a-entity>
-
+   <a-sky src="#sky"></a-sky>
   </a-scene>
 </body>
 
