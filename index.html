@@ -32,6 +32,8 @@
       <a-asset-item id="house-mtl" src="assets/HouseOBJ.mtl"></a-asset-item>
       <a-asset-item id="house-obj" src="assets/HouseOBJ.obj"></a-asset-item>
       <a-asset-item id="floor-obj" src="assets/scene/Floor.obj"></a-asset-item>
+      <a-asset-item id="floor2-obj" src="assets/scene/floor2.obj"></a-asset-item>
+      <a-asset-item id="floor2-mtl" src="assets/scene/floor2.mtl"></a-asset-item>
       <a-asset-item id="ceiling-obj" src="assets/scene/Ceiling_1.obj"></a-asset-item>
       <a-asset-item id="ceiling-1-obj" src="assets/scene/Ceiling_2.obj"></a-asset-item>
       <a-asset-item id="ceiling-2-obj" src="assets/scene/Ceiling_3.obj"></a-asset-item>
@@ -93,6 +95,9 @@
       <a-asset-item id="door-5-mtl" src="assets/scene/Door_5.mtl"></a-asset-item>
       <a-asset-item id="window-obj" src="assets/scene/Window_1.obj"></a-asset-item>
       <a-asset-item id="window-mtl" src="assets/scene/Window_1.mtl"></a-asset-item>
+      <a-asset-item id="window2-obj" src="assets/scene/window_outline.obj"></a-asset-item>
+      <a-asset-item id="window2-mtl" src="assets/scene/window_outline.mtl"></a-asset-item>
+      <a-asset-item id="window3-obj" src="assets/scene/window_outline2.obj"></a-asset-item>
       <a-asset-item id="logo-obj" src="assets/scene/LOgo.obj"></a-asset-item>
       <a-asset-item id="chair-1-obj" src="assets/scene/Chair_1.obj"></a-asset-item>
       <a-asset-item id="chair-2-obj" src="assets/scene/Chair_2.obj"></a-asset-item>
@@ -253,6 +258,10 @@
       </a-entity>
       <a-entity id="window" scale="0.1 0.1 0.1" obj-model="obj:#window-obj;mtl:#window-mtl;">
       </a-entity>
+      <a-entity id="window-outline" scale="0.1 0.1 0.1" obj-model="obj:#window2-obj;mtl:#window2-mtl;">
+      </a-entity>
+      <a-entity id="window-outline2" scale="0.1 0.1 0.1" obj-model="obj:#window3-obj;" material="src: ./assets/scene/tex/Mesh80_Group83_Group82_Group81_ModelSurface_Color.png">
+      </a-entity>
       <a-entity id="door">
         <a-entity id="door-1" scale="0.1 0.1 0.1" obj-model="obj:#door-1-obj; mtl:#door-1-mtl">
         </a-entity>
@@ -318,6 +327,8 @@
       </a-entity>
       <a-obj-model id="floor" scale="0.1 0.1 0.1" position="0 0.5 0" obj-model="obj:#floor-obj;" material="src: ./assets/scene/tex/Mesh18_Group21_ModelSurface_Color.png">
       </a-obj-model>
+      <a-obj-model id="floor2" scale="0.1 0.1 0.1" position="0 0.5 0" obj-model="obj:#floor2-obj;mtl:#floor2-mtl;">
+      </a-obj-model>
       <a-entity id="ceil" position="0 0.5 0">
         <a-obj-model id="ceiling" scale="0.1 0.1 0.1"  obj-model="obj:#ceiling-obj;" material="src: ./assets/scene/tex/Mesh144_Group127_ModelSurface_Color.png">
         </a-obj-model>
@@ -336,7 +347,7 @@
         <a-entity id="ceiling-7" scale="0.1 0.1 0.1" obj-model="obj:#ceiling-7-obj; mtl:#ceiling-7-mtl;">
         </a-entity>
       </a-entity>
-      <a-plane material="color: #1d1d1d;" geometry="" rotation="-90 0 0" scale="20 40 10" position="9.26821 -1 -6.429"></a-plane>
+      <a-plane material="color: #2e2e2f; shader: msdf; blending: multiply" geometry="" rotation="-90 0" scale="70 60 0.00001" position="33.32963 -1 -6.429"></a-plane>
       <a-entity id="popup" scale="0.1 0.1 0.1" position="0 0.5 0" obj-model="obj:#corelogicscreen1-obj;mtl:#corelogicscreen1-mtl">
       </a-entity>
       <a-entity scale="0.1 0.1 0.1" obj-model="obj: assets/corelogicmodel_screen2.obj; mtl:#corelogicscreen2-mtl" position="-1274.02 -0.88 28.9">
