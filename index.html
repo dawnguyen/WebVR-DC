@@ -10,6 +10,7 @@
   <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
   <script src="set-image.js"></script>
   <script src="main.js"></script>
+  <script src="inflate.min.js"></script>
 </head>
 
 <body>
@@ -186,6 +187,7 @@
     </a-entity>
 
     <a-entity>
+      <a-entity scale="0.045 0.045 0.045"  fbx-model="src: ./assets/greet.fbx" animation-mixer="" position="37.94494 -0.796 -1.24373" rotation="0 45 -1.0300000000000002"></a-entity>
       <a-entity id="wall" position="0 0.5">
         <a-entity id="wall-1" scale="0.1 0.1 0.1" obj-model="obj:#wall-1-obj;" material="src: ./assets/scene/tex/Mesh37_Group29_ModelSurface_Color.png">
         </a-entity>
@@ -382,7 +384,9 @@
         <a-entity id="centernew-5" scale="0.1 0.1 0.1" position="0 0.5" obj-model="obj:#centernew-5-obj; mtl:#centernew-5-mtl;">
         </a-entity>
       </a-entity>
+
     </a-entity>
+
     <a-entity template="src: #link" data-src="#popup-trial" data-thumb="#trial" position="38.603 6 -8.632" rotation="0 30 0" scale="1 1 1" material="transparent:true"></a-entity>
     <a-entity light="color: #BBB; type: ambient; intensity: 1.22" data-aframe-default-light="" aframe-injected=""></a-entity>
     <a-entity light="intensity: 0.21; castShadow: true" position="-0.5 1 1" data-aframe-default-light="" aframe-injected=""></a-entity>
