@@ -2,9 +2,8 @@
 
 newmtl Mesh2_Group2_Model
 Ka 1 1 1
-map_Ka C:\Users\anhng\Downloads\dawn 2\dawn\assets\bake\bakee\Mesh2_Group2_ModelSurface_Color.png
+map_Ka .\tex\Mesh2_Group2_ModelSurface_Color.png
 Kd 1 1 1
 Ks 1 1 1
 Ns 50
 illum 7
-

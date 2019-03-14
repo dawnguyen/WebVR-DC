@@ -93,6 +93,8 @@
       <a-asset-item id="door-4-mtl" src="assets/scene/Door_4.mtl"></a-asset-item>
       <a-asset-item id="door-5-obj" src="assets/scene/Door_5.obj"></a-asset-item>
       <a-asset-item id="door-5-mtl" src="assets/scene/Door_5.mtl"></a-asset-item>
+      <a-asset-item id="pole-obj" src="assets/scene/pole.obj"></a-asset-item>
+      <a-asset-item id="pole2-obj" src="assets/scene/pole3.obj"></a-asset-item>
       <a-asset-item id="window-obj" src="assets/scene/Window_1.obj"></a-asset-item>
       <a-asset-item id="window-mtl" src="assets/scene/Window_1.mtl"></a-asset-item>
       <a-asset-item id="window2-obj" src="assets/scene/window_outline.obj"></a-asset-item>
@@ -256,13 +258,19 @@
         <a-entity id="triangle-21" scale="0.1 0.1 0.1" obj-model="obj:#triangle-21-obj;" material="src: ./assets/scene/tex/Mesh126_Group110_ModelSurface_Color.png">
         </a-entity>
       </a-entity>
-      <a-entity id="window" scale="0.1 0.1 0.1" obj-model="obj:#window-obj;mtl:#window-mtl;">
+      <a-entity id="window" position="0 0.5 0">
+      <a-entity  scale="0.1 0.1 0.1" obj-model="obj:#window-obj;mtl:#window-mtl;">
       </a-entity>
       <a-entity id="window-outline" scale="0.1 0.1 0.1" obj-model="obj:#window2-obj;mtl:#window2-mtl;">
       </a-entity>
       <a-entity id="window-outline2" scale="0.1 0.1 0.1" obj-model="obj:#window3-obj;" material="src: ./assets/scene/tex/Mesh80_Group83_Group82_Group81_ModelSurface_Color.png">
       </a-entity>
-      <a-entity id="door">
+      <a-entity id="pole" scale="0.1 0.1 0.1" obj-model="obj:#pole-obj;" material="src: ./assets/scene/tex/Mesh9_Group10_ModelSurface_Color.png">
+      </a-entity>
+      <a-entity id="pole2" scale="0.1 0.1 0.1" obj-model="obj:#pole2-obj;" material="src: ./assets/scene/tex/Mesh2_Group2_ModelSurface_Color.png">
+      </a-entity>
+      </a-entity>
+      <a-entity id="door" position="0 0.5 0">
         <a-entity id="door-1" scale="0.1 0.1 0.1" obj-model="obj:#door-1-obj; mtl:#door-1-mtl">
         </a-entity>
         <a-entity id="door-2" scale="0.1 0.1 0.1" obj-model="obj:#door-2-obj;mtl:#door-2-mtl" material="src: ./assets/scene/tex/Mesh6_Group7_ModelSurface_Color.png">
