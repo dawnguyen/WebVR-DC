@@ -5,17 +5,20 @@
   <title>demo</title>
   <link rel="stylesheet" type="text/css" href="main.css">
   <script src="./aframe.0.9.0.min.js"></script>
-  <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
   <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
   <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
-
   <script src="set-image.js"></script>
   <script src="main.js"></script>
   <script src="inflate.min.js"></script>
+  <script src="rounded.js"></script>
 </head>
 
 <body>
   <div id="splash">
+    <div class="splash-image">
+      <img src="./assets/demonstration.svg">
+    </div>
     <div class="loading"></div>
     <div class="start-button">Start Your Journey</div>
     <div class="credits">
@@ -161,42 +164,45 @@
       <img id="border-ui" src="assets/img/schematic5.png">
       <img id="sky">
 
-      <!-- Image link template to be reused. -->
-      <script id="link" type="text/html">
-        <a-entity class="link"
-            geometry="primitive: plane; height: 1; width: 1"
-            material="shader: flat;opacity: 0.9; src: ${thumb}"
-            event-set__1="_event: mousedown; scale: 1 1 1"
-            event-set__2="_event: mouseup; scale: 1.2 1.2 1.2"
-            event-set__3="_event: mouseenter; scale: 1.2 1.2 1.2"
-            event-set__4="_event: mouseleave; scale: 1 1 1"
-            set-image="on: click; target: #popup; mtl: ${mtl}"
-            sound="on: click; src: #click-sound"></a-entity>
-
-        </script>
 
     </a-assets>
 
     <a-entity id="main-camera-wrapper rig" movement-controls="acceleration: 75; easing: 10; enabled: true; fly: false;" position="50 0 7" rotation="0 45 0">
-      <a-camera id="main-camera" position="0 6 0" visible="true" cursor="rayOrigin: mouse;" raycaster="objects: .clickable; interval: 1;">
-        <a-cursor id="cursor" event-set__4="_event: mouseleave; color: black;" event-set__3="_event: mouseenter; color: springgreen;" fuse="true" raycaster="objects: .link">
+      <a-camera id="main-camera" look-controls position="0 6 0" visible="true" cursor="rayOrigin: mouse;">
+        <a-cursor id="cursor" event-set__4="_event: mouseleave; color: black;" event-set__3="_event: mouseenter; color: springgreen;" fuse="true" raycaster="objects: .clickable">
           <a-animation begin="click" easing="ease-in" attribute="scale" dur="150" fill="forwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
           <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" dur="800" fill="backwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
         </a-cursor>
       </a-camera>
 
     </a-entity>
+    <a-entity tracked-controls="controller: 0; idPrefix: OpenVR"></a-entity>
 
     <a-entity>
-      <a-entity scale="0.043 0.043 0.043"  fbx-model="src: ./assets/greet.fbx" animation-mixer="" position="37.94494 -0.796 -1.24373" rotation="0 70 0"></a-entity>
-      <a-entity position="39.17494 6.52063 -4.12847" rotation="0 60">
-      <a-box scale="3 2 0.1" material="opacity: 0.4; color: #4c607b; alphaTest: 0.41; transparent: true; vertexColors: face; wireframeLinewidth: 0.1" geometry=""></a-box>
-      <a-text value="Welcome to Discovery Center!" text="width: 1.13; align: center; letterSpacing: -1.54; lineHeight: 70; side: double; whiteSpace: nowrap; wrapCount: 15.52" position="0.01471 0 0.18765" rotation="" scale="3 3 3">
-      </a-text>
-      <a-image src="#border-ui"   position="1.6 0 0.142" scale="2 2 2" material="shader: flat; side: double; transparent: true; alphaTest:0.1;"></a-image>
-      <a-image src="#border-ui" rotation="0 180" position="-1.758 0 0" scale="2 2 2" material="shader: flat; side: double; transparent: true; alphaTest:0.1;"></a-image>
-
-    </a-entity>
+      <a-entity scale="0.043 0.043 0.043" fbx-model="src: ./assets/greet.fbx" animation-mixer="" position="37.94494 -0.796 -1.24373" rotation="0 70 0"></a-entity>
+      <a-entity position="39.17494 7 -4.12847" rotation="0 60">
+        <a-text id="greeting-text" visible="true" value="Welcome to Discovery Center!" text="width: 1.13; align: center; letterSpacing: -1.54; lineHeight: 70; side: double; whiteSpace: nowrap; wrapCount: 15.52" position="0.01471 0 0.18765" scale="3 3 3">
+        </a-text>
+        <a-box scale="3 2 0.1" material="opacity: 0.4; color: #4c607b; alphaTest: 0.41; transparent: true; vertexColors: face; wireframeLinewidth: 0.1" geometry=""></a-box>
+        <a-image src="#border-ui" position="1.6 0 0.142" scale="2 2 2" material="shader: flat; side: double; transparent: true; alphaTest:0.1;"></a-image>
+        <a-image src="#border-ui" rotation="0 180" position="-1.494 0 0" scale="2 2 2" material="shader: flat; side: double; transparent: true; alphaTest:0.1;"></a-image>
+        <a-plane id="button" class="clickable" rounded="color: #f8c345; radius: 0.05" scale="1.25 0.55 1" position="-0.549 -1.75 0.243" material="" geometry="" animation__1="delay: 0; dir: normal; dur: 200; easing: linear; elasticity: 400; loop: 0; property: rounded.color; startEvents: button-clicked; to:#fff"
+          animation="delay: 0; dir: normal; dur: 200; easing: linear; elasticity: 400; loop: 0; property: position; startEvents: button-hover; to:-0.533 -1.885 0;" animation__2="delay: 0; dir: normal; dur: 200; easing: linear; elasticity: 400; loop: 0; property: position; startEvents: button-clicked; to:-0.549 -1.75 0.243"
+          animation__3="delay: 0; dir: normal; dur: 200; easing: linear; elasticity: 400; loop: 0; property: rounded.color; startEvents: close; to:#f8c345">
+          <a-text id="button-text" text="color:#fff;  align: center; width:4.5" value="Corelogic" position="0.509 0.535 0" animation__1="delay: 0; dir: normal; dur: 200; easing: linear; elasticity: 400; loop: 0; property: text.color; startEvents: button-clicked; to:#000"
+            animation="delay: 0; dir: normal; dur: 200; easing: linear; elasticity: 400; loop: 0; property: text.color; startEvents: button-hover; to:#888" animation__2="delay: 0; dir: normal; dur: 200; easing: linear; elasticity: 400; loop: 0; property: text.color; startEvents: close; to:#fff"></a-text>
+        </a-plane>
+        <a-plane rounded="color: #000; radius: 0.05" scale="1.25 0.55 1" position="-0.533 -1.885 0" material="" geometry="">
+        </a-plane>
+        <a-video autoplay loop="true" src="assets/corelogic.mp4" playsinline id="video" position="6.109 -0.22314 3.239" material="opacity:0; alphaTest: 0.5" width="8" height="4.5" animation="delay: 400; dir: normal; dur: 800; easing: linear; property: material.opacity; startEvents: button-clicked; to: 1"
+          geometry="" rotation="0 -35" animation__1="delay: 400; dir: normal; dur: 800; easing: linear; property: material.opacity; startEvents: close; to: 0">
+        </a-video>
+        <a-circle class="clickable" id="close-video" rotation="0 -35" position="5.840 -2.23 3.394" radius="0.5" material="color:#f8c345; opacity:0;alphaTest:0.5" animation="delay: 400; dir: normal; dur: 800; easing: linear; property: material.opacity; startEvents: button-clicked; to: 1"
+          animation__1="delay: 400; dir: normal; dur: 800; easing: linear; property: material.opacity; startEvents: close; to: 0">
+        </a-circle>
+        <a-text id="close-text" value="X" rotation="0 -35" position="5.652 -2.23 3.269" text="opacity:0; alphaTest:0.5;color:#fff; width:12;" animation="delay: 400; dir: normal; dur: 800; easing: linear; property: text.opacity; startEvents: button-clicked; to: 1"
+      animation__1="delay: 400; dir: normal; dur: 800; easing: linear; property: text.opacity; startEvents: close; to: 0"></a-text>
+      </a-entity>
 
 
       <a-entity id="wall" position="0 0.5">
@@ -272,16 +278,16 @@
         </a-entity>
       </a-entity>
       <a-entity id="window" position="0 0.5 0">
-      <a-entity  scale="0.1 0.1 0.1" obj-model="obj:#window-obj;mtl:#window-mtl;">
-      </a-entity>
-      <a-entity id="window-outline" scale="0.1 0.1 0.1" obj-model="obj:#window2-obj;mtl:#window2-mtl;">
-      </a-entity>
-      <a-entity id="window-outline2" scale="0.1 0.1 0.1" obj-model="obj:#window3-obj;" material="src: ./assets/scene/tex/Mesh80_Group83_Group82_Group81_ModelSurface_Color.png">
-      </a-entity>
-      <a-entity id="pole" scale="0.1 0.1 0.1" obj-model="obj:#pole-obj;" material="src: ./assets/scene/tex/Mesh9_Group10_ModelSurface_Color.png">
-      </a-entity>
-      <a-entity id="pole2" scale="0.1 0.1 0.1" obj-model="obj:#pole2-obj;" material="src: ./assets/scene/tex/Mesh2_Group2_ModelSurface_Color.png">
-      </a-entity>
+        <a-entity scale="0.1 0.1 0.1" obj-model="obj:#window-obj;mtl:#window-mtl;">
+        </a-entity>
+        <a-entity id="window-outline" scale="0.1 0.1 0.1" obj-model="obj:#window2-obj;mtl:#window2-mtl;">
+        </a-entity>
+        <a-entity id="window-outline2" scale="0.1 0.1 0.1" obj-model="obj:#window3-obj;" material="src: ./assets/scene/tex/Mesh80_Group83_Group82_Group81_ModelSurface_Color.png">
+        </a-entity>
+        <a-entity id="pole" scale="0.1 0.1 0.1" obj-model="obj:#pole-obj;" material="src: ./assets/scene/tex/Mesh9_Group10_ModelSurface_Color.png">
+        </a-entity>
+        <a-entity id="pole2" scale="0.1 0.1 0.1" obj-model="obj:#pole2-obj;" material="src: ./assets/scene/tex/Mesh2_Group2_ModelSurface_Color.png">
+        </a-entity>
       </a-entity>
       <a-entity id="door" position="0 0.5 0">
         <a-entity id="door-1" scale="0.1 0.1 0.1" obj-model="obj:#door-1-obj; mtl:#door-1-mtl">
@@ -351,7 +357,7 @@
       <a-obj-model id="floor2" scale="0.1 0.1 0.1" position="0 0.5 0" obj-model="obj:#floor2-obj;mtl:#floor2-mtl;">
       </a-obj-model>
       <a-entity id="ceil" position="0 0.5 0">
-        <a-obj-model id="ceiling" scale="0.1 0.1 0.1"  obj-model="obj:#ceiling-obj;" material="src: ./assets/scene/tex/Mesh144_Group127_ModelSurface_Color.png">
+        <a-obj-model id="ceiling" scale="0.1 0.1 0.1" obj-model="obj:#ceiling-obj;" material="src: ./assets/scene/tex/Mesh144_Group127_ModelSurface_Color.png">
         </a-obj-model>
         <a-entity id="ceiling-1" scale="0.1 0.1 0.1" obj-model="obj:#ceiling-1-obj;mtl:#ceiling-1-mtl;">
         </a-entity>
@@ -390,18 +396,16 @@
         </a-entity>
         <a-entity id="centernew-3" scale="0.1 0.1 0.1" position="0 0.5" obj-model="obj:#centernew-3-obj;mtl:#centernew-3-mtl;">
         </a-entity>
-        <a-entity id="centernew-4" scale="0.1 0.1 0.1" position="0 0.5" obj-model="obj:#centernew-4-obj; mtl:#centernew-4-mtl;" >
+        <a-entity id="centernew-4" scale="0.1 0.1 0.1" position="0 0.5" obj-model="obj:#centernew-4-obj; mtl:#centernew-4-mtl;">
         </a-entity>
         <a-entity id="centernew-5" scale="0.1 0.1 0.1" position="0 0.5" obj-model="obj:#centernew-5-obj; mtl:#centernew-5-mtl;">
         </a-entity>
       </a-entity>
 
     </a-entity>
-
-    <a-entity template="src: #link" data-src="#popup-trial" data-thumb="#trial" position="38.603 6 -8.632" rotation="0 30 0" scale="1 1 1" material="transparent:true"></a-entity>
     <a-entity light="color: #BBB; type: ambient; intensity: 1.22" data-aframe-default-light="" aframe-injected=""></a-entity>
     <a-entity light="intensity: 0.21; castShadow: true" position="-0.5 1 1" data-aframe-default-light="" aframe-injected=""></a-entity>
-   <a-sky src="#sky" material="color:#444"></a-sky>
+    <a-sky src="#sky" material="color:#444"></a-sky>
   </a-scene>
 </body>
 

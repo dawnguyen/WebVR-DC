@@ -8,11 +8,15 @@ body {
 }
 
 body.AR-container {
-  margin : 0px; 
+  margin : 0px;
   overflow: hidden;
   background-color: none;
 }
-
+.splash-image {
+width: 60%;
+margin: auto;
+margin-bottom: 5% !important;
+}
 #splash {
   position: fixed;
   z-index: 99999;
@@ -21,12 +25,12 @@ body.AR-container {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
+
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  
+
   margin: auto;
 
   font-size: 12px;
@@ -64,13 +68,15 @@ body.AR-container {
   cursor: pointer;
   background-color: #292929;
   letter-spacing: 1px;
+  margin: auto;
+  margin-top: 0 !important;
 }
 
 #splash .credits {
   position: absolute;
   left: 2em;
   bottom: 2em;
-  
+
   color: rgba(255, 255, 255, 0.8);
   font-size: 12px;
 }
