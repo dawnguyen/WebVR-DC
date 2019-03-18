@@ -7,7 +7,7 @@
   <script src="./aframe.0.9.0.min.js"></script>
   <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
   <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
-  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
+  <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
   <script src="set-image.js"></script>
   <script src="main.js"></script>
   <script src="inflate.min.js"></script>
@@ -185,11 +185,10 @@
         <a-box scale="3 2 0.1" material="opacity: 0.4; color: #4c607b; alphaTest: 0.41; transparent: true; vertexColors: face; wireframeLinewidth: 0.1" geometry=""></a-box>
         <a-image src="#border-ui" position="1.6 0 0.142" scale="2 2 2" material="shader: flat; side: double; transparent: true; alphaTest:0.1;"></a-image>
         <a-image src="#border-ui" rotation="0 180" position="-1.494 0 0" scale="2 2 2" material="shader: flat; side: double; transparent: true; alphaTest:0.1;"></a-image>
-        <a-plane id="button" class="clickable" rounded="color: #f8c345; radius: 0.05" scale="1.25 0.55 1" position="-0.549 -1.75 0.243" material="" geometry="" animation__1="delay: 0; dir: normal; dur: 200; easing: linear; elasticity: 400; loop: 0; property: rounded.color; startEvents: button-clicked; to:#fff"
-          animation="delay: 0; dir: normal; dur: 200; easing: linear; elasticity: 400; loop: 0; property: position; startEvents: button-hover; to:-0.533 -1.885 0;" animation__2="delay: 0; dir: normal; dur: 200; easing: linear; elasticity: 400; loop: 0; property: position; startEvents: button-clicked; to:-0.549 -1.75 0.243"
-          animation__3="delay: 0; dir: normal; dur: 200; easing: linear; elasticity: 400; loop: 0; property: rounded.color; startEvents: close; to:#f8c345">
-          <a-text id="button-text" text="color:#fff;  align: center; width:4.5" value="Corelogic" position="0.509 0.535 0" animation__1="delay: 0; dir: normal; dur: 200; easing: linear; elasticity: 400; loop: 0; property: text.color; startEvents: button-clicked; to:#000"
-            animation="delay: 0; dir: normal; dur: 200; easing: linear; elasticity: 400; loop: 0; property: text.color; startEvents: button-hover; to:#888" animation__2="delay: 0; dir: normal; dur: 200; easing: linear; elasticity: 400; loop: 0; property: text.color; startEvents: close; to:#fff"></a-text>
+        <a-plane id="button" class="clickable" rounded="color: #fff; radius: 0.05" scale="1.25 0.55 1" position="-0.549 -1.75 0.243" material="" geometry="" animation__1="delay: 0; dir: alternate; dur: 200; easing: linear; loop: 2; property: rounded.color; startEvents: button-clicked; to:#f8c345"
+          animation__2="delay: 0; dir: alternate; dur: 200; easing: linear; loop: 2; property: position; startEvents: button-clicked; to:-0.533 -1.885 0; ">
+
+          <a-text id="button-text" text="color:#000;  align: center; width:4.5" value="Corelogic" position="0.509 0.535 0"></a-text>
         </a-plane>
         <a-plane rounded="color: #000; radius: 0.05" scale="1.25 0.55 1" position="-0.533 -1.885 0" material="" geometry="">
         </a-plane>

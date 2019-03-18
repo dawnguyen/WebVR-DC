@@ -53,10 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     activateSoundsForTouch();
     splash.style.display = 'none';
   });
-  document.querySelector('#button').addEventListener('mouseover', function(e) {
-    document.querySelector('#button').emit('button-hover');
-    document.querySelector('#button-text').emit('button-hover');
-  });
+
   document.querySelector('#button').addEventListener('click', function(e) {
     document.querySelector('#button').emit('button-clicked');
     document.querySelector('#video').emit('button-clicked');
@@ -65,9 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#close-text').emit('button-clicked');
   });
   document.querySelector('#close-video').addEventListener('click', function(e) {
-    document.querySelector('#button').emit('close');
     document.querySelector('#video').emit('close');
-    document.querySelector('#button-text').emit('close');
     document.querySelector('#close-video').emit('close');
     document.querySelector('#close-text').emit('close');
   });
