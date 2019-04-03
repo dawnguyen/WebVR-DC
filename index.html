@@ -8,6 +8,7 @@
   <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
   <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
   <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script>
   <script src="set-image.js"></script>
   <script src="main.js"></script>
   <script src="inflate.min.js"></script>
@@ -150,7 +151,6 @@
       <a-asset-item id="center-3-obj" src="assets/scene/Center_3.obj"></a-asset-item>
       <a-asset-item id="center-4-obj" src="assets/scene/Center_4.obj"></a-asset-item>
       <a-asset-item id="center-4-mtl" src="assets/scene/Center_4.mtl"></a-asset-item>
-      <a-asset-item id="centernew-1-obj" src="assets/scene/Centernew_1.obj"></a-asset-item>
       <a-asset-item id="centernew-2-obj" src="assets/scene/Centernew_2.obj"></a-asset-item>
       <a-asset-item id="centernew-3-obj" src="assets/scene/Centernew_3.obj"></a-asset-item>
       <a-asset-item id="centernew-4-obj" src="assets/scene/Centernew_4.obj"></a-asset-item>
@@ -178,28 +178,38 @@
     <a-entity tracked-controls="controller: 0; idPrefix: OpenVR"></a-entity>
 
     <a-entity>
-      <a-entity scale="0.043 0.043 0.043" fbx-model="src: ./assets/greet.fbx" animation-mixer="" position="37.94494 -0.796 -1.24373" rotation="0 70 0"></a-entity>
-      <a-entity position="39.17494 7 -4.12847" rotation="0 60">
-        <a-text id="greeting-text" visible="true" value="Welcome to Discovery Center!" text="width: 1.13; align: center; letterSpacing: -1.54; lineHeight: 70; side: double; whiteSpace: nowrap; wrapCount: 15.52" position="0.01471 0 0.18765" scale="3 3 3">
-        </a-text>
-        <a-box scale="3 2 0.1" material="opacity: 0.4; color: #4c607b; alphaTest: 0.41; transparent: true; vertexColors: face; wireframeLinewidth: 0.1" geometry=""></a-box>
-        <a-image src="#border-ui" position="1.6 0 0.142" scale="2 2 2" material="shader: flat; side: double; transparent: true; alphaTest:0.1;"></a-image>
-        <a-image src="#border-ui" rotation="0 180" position="-1.494 0 0" scale="2 2 2" material="shader: flat; side: double; transparent: true; alphaTest:0.1;"></a-image>
-        <a-plane id="button" class="clickable" rounded="color: #fff; radius: 0.05" scale="1.25 0.55 1" position="-0.549 -1.75 0.243" material="" geometry="" animation__1="delay: 0; dir: alternate; dur: 200; easing: linear; loop: 2; property: rounded.color; startEvents: button-clicked; to:#f8c345"
-          animation__2="delay: 0; dir: alternate; dur: 200; easing: linear; loop: 2; property: position; startEvents: button-clicked; to:-0.533 -1.885 0; ">
+      <a-entity scale="0.043 0.043 0.043"  fbx-model="src: ./assets/greet.fbx" animation-mixer="" position="37.94494 -0.796 -1.24373" rotation="0 70 0"></a-entity>
+      <a-entity id="earth" scale="0 0 0"  gltf-model="./assets/hud/hud_earth.glb" animation-mixer="" position="33.5 5 -5.657" rotation="0 90 0"
+      animation="delay: 800;  dur: 500; easing: linear; property: scale; startEvents: button-clicked; to:3 3 3"
+      animation__1="delay: 400;  dur: 500; easing: linear; property: scale; startEvents: close; to:0 0 0" ></a-entity>
 
-          <a-text id="button-text" text="color:#000;  align: center; width:4.5" value="Corelogic" position="0.509 0.535 0"></a-text>
+      <a-entity position="39.17494 6 -9.12847" rotation="0 60" look-at="#main-camera">
+        <a-plane id="open" class="clickable" rounded="color: #fff; radius: 0.05" scale="1.25 0.55 1" position="-0.549 -1.75 0.243" material="alphaTest:0.5; opacity:1" geometry=""
+        animation__1="delay: 0;  dur: 200; easing: linear; property: rounded.color; startEvents: button-clicked; to:#f8c345"
+          animation__2="delay: 0; dir: alternate; dur: 200; easing: linear; property: position; startEvents: button-clicked; to:-0.533 -1.885 0; "
+          animation__3="delay: 0; dur: 200; easing: linear;  property: material.opacity; startEvents: button-clicked; to: 0; "
+          animation__4="delay: 0;  dur: 200; easing: linear; property: rounded.color; startEvents: close; to:#fff"
+            animation__5="delay: 0; dir: alternate; dur: 200; easing: linear; property: position; startEvents: close; to:-0.549 -1.75 0.243; "
+            animation__6="delay: 0; dur: 200; easing: linear;  property: material.opacity; startEvents: close; to: 1; ">
+
+          <a-text id="button-text" text="color:#000;  align: center; width:4.5; alphaText: 0.5; opacity: 1" value="Explore" position="0.509 0.535 0"
+          animation="delay: 0; dir: normal; dur: 200; easing: linear; property: text.opacity; startEvents: button-clicked; to: 0"
+        animation__1="delay: 0; dir: normal; dur: 200; easing: linear; property: text.opacity; startEvents: close; to: 1"></a-text>
+        </a-plane>
+        <a-plane id="close" class="clickable" rounded="color: #f8c345; radius: 0.05" scale="1.25 0.55 1" position="-0.533 -1.885 0" material="alphaTest:0.5; opacity:0" geometry=""
+        animation__1="delay: 0;  dur: 200; easing: linear; property: rounded.color; startEvents: button-clicked; to:#fff"
+          animation__2="delay: 0; dir: alternate; dur: 200; easing: linear; property: position; startEvents: button-clicked; to:-0.549 -1.75 0.243; "
+          animation__3="delay: 0; dur: 200; easing: linear;  property: material.opacity; startEvents: button-clicked; to: 1; "
+          animation__4="delay: 0;  dur: 200; easing: linear; property: rounded.color; startEvents: close; to:#f8c345"
+            animation__5="delay: 0; dir: alternate; dur: 200; easing: linear; property: position; startEvents: close; to:-0.533 -1.885 0; "
+            animation__6="delay: 0; dur: 200; easing: linear;  property: material.opacity; startEvents: close; to: 0; ">
+          <a-text id="close-text" value="Go Back" position="0.509 0.535 0" text="opacity:0; alphaTest:0.5; color:#000; align: center;width:4.5;"
+          animation="delay: 0; dir: normal; dur: 200; easing: linear; property: text.opacity; startEvents: button-clicked; to: 1"
+        animation__1="delay: 0; dir: normal; dur: 200; easing: linear; property: text.opacity; startEvents: close; to: 0"></a-text>
         </a-plane>
         <a-plane rounded="color: #000; radius: 0.05" scale="1.25 0.55 1" position="-0.533 -1.885 0" material="" geometry="">
         </a-plane>
-        <a-video muted="true" autoplay loop="true" src="/" playsinline id="video" position="6.109 -0.22314 3.239" material="opacity:0; alphaTest: 0.5" width="8" height="4.5" animation="delay: 400; dir: normal; dur: 800; easing: linear; property: material.opacity; startEvents: button-clicked; to: 1"
-          geometry="" rotation="0 -35" animation__1="delay: 400; dir: normal; dur: 800; easing: linear; property: material.opacity; startEvents: close; to: 0">
-        </a-video>
-        <a-circle class="clickable" id="close-video" rotation="0 -35" position="5.840 -2.23 3.394" radius="0.5" material="color:#f8c345; opacity:0;alphaTest:0.5" animation="delay: 400; dir: normal; dur: 800; easing: linear; property: material.opacity; startEvents: button-clicked; to: 1"
-          animation__1="delay: 0; dir: normal; dur: 800; easing: linear; property: material.opacity; startEvents: close; to: 0">
-        </a-circle>
-        <a-text id="close-text" value="X" rotation="0 -35" position="5.652 -2.23 3.269" text="opacity:0; alphaTest:10; color:#fff; width:12;" animation="delay: 400; dir: normal; dur: 800; easing: linear; property: text.opacity; startEvents: button-clicked; to: 1"
-      animation__1="delay: 400; dir: normal; dur: 800; easing: linear; property: text.opacity; startEvents: close; to: 0"></a-text>
+
       </a-entity>
 
 
@@ -377,18 +387,19 @@
       </a-entity>
       <a-entity scale="0.1 0.1 0.1" obj-model="obj: assets/corelogicmodel_screen2.obj; mtl:#corelogicscreen2-mtl" position="-1274.02 -0.88 28.9">
       </a-entity>
-      <a-obj-model id="sample" position="47.20686 2.54674 -10.27632" rotation="0 135 0" scale="0.08 0.11 0.04" obj-model="obj:assets/HouseOBJ.obj;mtl:assets/HouseOBJ.mtl" material="color:#dbd3ff;side:double;roughness:1;metalnessTextureOffset:8.41 0;metalnessTextureRepeat:3.47 2.4;npot:true"
+      <a-obj-model id="sample"  position="47.20686 2.54674 -10.27632" rotation="0 135 0" scale="0.08 0.11 0.04" obj-model="obj:assets/HouseOBJ.obj;mtl:assets/HouseOBJ.mtl" material="color:#dbd3ff;side:double;roughness:1;metalnessTextureOffset:8.41 0;metalnessTextureRepeat:3.47 2.4;npot:true"
         shadow=""></a-obj-model>
-      <a-entity id="center">
         <a-entity id="center-1" scale="0.1 0.1 0.1" obj-model="obj:#center-1-obj;" position="0 0.5" material="src: ./assets/scene/tex/Mesh127_Group112_Group111_ModelSurface_Color.png">
         </a-entity>
+      <a-entity id="center"
+      animation="delay: 400; dir: normal; dur: 800; easing: linear; property: position; startEvents: button-clicked; to: 0 -10.8 0"
+      animation__1="delay: 800; dir: normal; dur: 800; easing: linear; property: position; startEvents: close; to: 0 0 0">
+
         <a-entity id="center-2" scale="0.1 0.1 0.1" obj-model="obj: #center-2-obj;" visible="" position="0 0.5" material="src: ./assets/scene/tex/Mesh145_Group130_Group129_Model.1Surface_Color.png">
         </a-entity>
         <a-entity id="center-3" scale="0.1 0.1 0.1" obj-model="obj:#center-3-obj;" position="0 0.5" material="src: ./assets/scene/tex/Mesh164_Component_15_1_Component_11_1_Group129_Model.1Surface_Color.png">
         </a-entity>
         <a-entity id="center-4" scale="0.1 0.1 0.1" obj-model="obj:#center-4-obj; mtl:#center-4-mtl;" position="0 0.5">
-        </a-entity>
-        <a-entity id="centernew-1" scale="0.1 0.1 0.1" position="0 0.5" obj-model="obj:#centernew-1-obj;" material="src: ./assets/scene/tex/Mesh127_Group112_Group111_ModelSurface_Color.png">
         </a-entity>
         <a-entity id="centernew-2" scale="0.1 0.1 0.1" position="0 0.5" obj-model="obj:#centernew-2-obj; mtl:#centernew-2-mtl;">
         </a-entity>
@@ -396,13 +407,19 @@
         </a-entity>
         <a-entity id="centernew-4" scale="0.1 0.1 0.1" position="0 0.5" obj-model="obj:#centernew-4-obj; mtl:#centernew-4-mtl;">
         </a-entity>
-        <a-entity id="centernew-5" scale="0.1 0.1 0.1" position="0 0.5" obj-model="obj:#centernew-5-obj; mtl:#centernew-5-mtl;">
-        </a-entity>
+
+      </a-entity>
+      <a-entity id="centernew-5" scale="0.1 0.1 0.1" position="0 0.5" obj-model="obj:#centernew-5-obj; mtl:#centernew-5-mtl;">
       </a-entity>
 
     </a-entity>
-    <a-entity light="color: #BBB; type: ambient; intensity: 1.22" data-aframe-default-light="" aframe-injected=""></a-entity>
+    <a-entity id="roomlight" light="color: #BBB; type: ambient; intensity: 1.22" data-aframe-default-light="" aframe-injected=""
+    animation="delay: 200; dir: normal; dur: 1800; easing: linear; property: light.intensity; startEvents: button-clicked; to: 0.2"
+    animation__1="delay: 800; dir: normal; dur: 1800; easing: linear; property: light.intensity; startEvents: close; to: 1.22"></a-entity>
     <a-entity light="intensity: 0.21; castShadow: true" position="-0.5 1 1" data-aframe-default-light="" aframe-injected=""></a-entity>
+    <a-entity id="hudlight" light="color: #81a8ff; groundColor: #dde1ff; decay: -1.66; distance: 1.91; intensity: 0; penumbra: 0.64; type: spot; shadowBias: 0.79; shadowCameraBottom: -5.37; shadowMapHeight: 511.73; shadowMapWidth: 511.47; shadowRadius: 1.26" position="33.429 9,796 -5.760" rotation="-90 0" scale="0.5 0.5 0.5"
+    animation="delay: 800; dir: normal; dur: 500; easing: linear; property: light.intensity; startEvents: button-clicked; to: 1.25"
+    animation__1="delay: 400; dir: normal; dur: 500; easing: linear; property: light.intensity; startEvents: close; to: 0"></a-entity>
     <a-sky src="#sky" material="color:#444"></a-sky>
   </a-scene>
 </body>

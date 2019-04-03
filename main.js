@@ -54,16 +54,24 @@ document.addEventListener('DOMContentLoaded', function() {
     splash.style.display = 'none';
   });
 
-  document.querySelector('#button').addEventListener('click', function(e) {
-    document.querySelector('#button').emit('button-clicked');
-    document.querySelector('#video').emit('button-clicked');
+  document.querySelector('#open').addEventListener('click', function(e) {
+    document.querySelector('#open').emit('button-clicked');
+    document.querySelector('#center').emit('button-clicked');
     document.querySelector('#button-text').emit('button-clicked');
-    document.querySelector('#close-video').emit('button-clicked');
+    document.querySelector('#close').emit('button-clicked');
     document.querySelector('#close-text').emit('button-clicked');
+    document.querySelector('#earth').emit('button-clicked');
+    document.querySelector('#roomlight').emit('button-clicked');
+      document.querySelector('#hudlight').emit('button-clicked');
   });
-  document.querySelector('#close-video').addEventListener('click', function(e) {
-    document.querySelector('#video').emit('close');
-    document.querySelector('#close-video').emit('close');
+  document.querySelector('#close').addEventListener('click', function(e) {
+    document.querySelector('#center').emit('close');
+    document.querySelector('#open').emit('close');
+    document.querySelector('#button-text').emit('close');
+    document.querySelector('#close').emit('close');
     document.querySelector('#close-text').emit('close');
+    document.querySelector('#earth').emit('close');
+    document.querySelector('#roomlight').emit('close');
+    document.querySelector('#hudlight').emit('close');
   });
 });
