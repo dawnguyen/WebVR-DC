@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#earth').emit('button-clicked');
     document.querySelector('#roomlight').emit('button-clicked');
       document.querySelector('#hudlight').emit('button-clicked');
+            document.querySelector('#terrain').emit('button-clicked');
   });
   document.querySelector('#close').addEventListener('click', function(e) {
     document.querySelector('#center').emit('close');
@@ -73,5 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#earth').emit('close');
     document.querySelector('#roomlight').emit('close');
     document.querySelector('#hudlight').emit('close');
+    document.querySelector('#terrain').emit('close');
   });
 });
